@@ -5,7 +5,8 @@ apt-get -y install dnsutils git gcc g++ flex bison make pkg-config libpcre3-dev 
 \
 #Here we are getting IP address of server and then we are setting it to advertise IP
 IP=$(echo $(dig +short myip.opendns.com @resolver1.opendns.com)) &&\
-echo "listen=eth0:5060 advertise $IP:5060" >> /kamailio.listen && \
+# echo "listen=eth0:5060 advertise $IP:5060" >> /kamailio.listen && \
+echo "listen=eth0:5060 advertise 10.30.30.99:5060" >> /kamailio.listen && \
 cd /usr/src/ && \
 git clone -b 5.2 https://github.com/kamailio/kamailio kamailio && \
 cd kamailio && \
